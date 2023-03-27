@@ -1,0 +1,25 @@
+.login-page{
+    display: flex;
+    border-radius: 15%;
+    justify-content: center;
+    flex-direction: column;
+}
+.login-form {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    flex-direction: column;
+    padding:10% 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.go-to-register {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    flex-direction: column;
+    text-align: center;
+}

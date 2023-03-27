@@ -1,0 +1,7 @@
+.nav-wrapper {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    justify-content: right;
+}
