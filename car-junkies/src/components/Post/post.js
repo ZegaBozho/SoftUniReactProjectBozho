@@ -1,9 +1,13 @@
 
 import { useState } from 'react';
-import {Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography } from '@mui/material';
+import {Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { postsServiceFactory } from '../../services/postsService';
+import { useService } from '../../hooks/useService';
 import Comment from '../Comment/comment';
+
 
 
 const ExpandMore = styled((props) => {
@@ -18,12 +22,21 @@ const ExpandMore = styled((props) => {
   }));
 
 const Post = ({
-  post
+  post,
+  edit,
+  setPosts
 }) => {
 
     const [expanded, setExpanded] = useState(false);
     const [comments, setComments] = useState([]);
-   
+    const postService = useService(postsServiceFactory);
+
+    const handleDelete = (postId) => {
+      postService.delete(postId).then( () => {
+          setPosts(state => state.filter( post => post._id !== postId))
+      })
+   }
+
 
     return (
         <Card sx={{
@@ -39,7 +52,10 @@ const Post = ({
         }
         title={post.userName}
         subheader={post.date}
+        
       />
+      
+      
       { post.postMedia !== '' &&  <CardMedia
             component="img"
             height="194"
@@ -55,6 +71,12 @@ const Post = ({
       </CardContent>
        
       <CardActions disableSpacing>
+        {edit &&   <IconButton aria-label="add to favorites" >
+        <DeleteForeverIcon 
+          onClick = {() =>   handleDelete(post._id)}
+        />
+      </IconButton>}
+    
       <ExpandMore
         expand={expanded}
         onClick={() =>  setExpanded(state => !state)}

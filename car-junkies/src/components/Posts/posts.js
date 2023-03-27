@@ -16,7 +16,7 @@ const inputStyles = {
 const Posts = ({
     posts,
     edit,
-    setPosts
+    setPosts,
 }) => {
 
     const [showCreatePost, setShowCreatePost] = useState(false);
@@ -40,7 +40,7 @@ const Posts = ({
             </>}
           
             {posts && posts.length? posts.map(post => { return (
-                    <Post key = {post._id} post = {post}/> ); }) : userId?
+                    <Post key = {post._id} post = {post} edit = {edit} setPosts = {setPosts}/>  ); }) : userId?
                     <div>
                         There are no posts currently. Be the first to post in this forum.
                     </div>: <div>You need to be logged in to post</div>
