@@ -20,7 +20,7 @@ const Posts = ({
 }) => {
 
     const [showCreatePost, setShowCreatePost] = useState(false);
-    const { userId } = useContext(AuthContext)
+    const { userId } = useContext(AuthContext);
 
     const handleToggleAddPost = () => {
         setShowCreatePost(state => !state);
@@ -40,10 +40,14 @@ const Posts = ({
             </>}
           
             {posts && posts.length? posts.map(post => { return (
-                    <Post key = {post._id} post = {post} edit = {edit} setPosts = {setPosts}/>  ); }) : userId?
+                    <Post key = {post._id} post = {post} edit = {edit} setPosts = {setPosts}/>  ); }) : !userId ?
                     <div>
-                        There are no posts currently. Be the first to post in this forum.
-                    </div>: <div>You need to be logged in to post</div>
+                        You need to be logged in to post
+                        
+                    </div>
+                    :!edit? <div>
+                       There are no posts currently. Be the first to post in this forum.
+                    </div> : null
                
             }
         </div>

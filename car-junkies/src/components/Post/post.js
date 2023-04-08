@@ -1,12 +1,14 @@
 
-import { useState } from 'react';
-import {Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography, Button } from '@mui/material';
+import { useEffect, useState } from 'react';
+import {Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { postsServiceFactory } from '../../services/postsService';
 import { useService } from '../../hooks/useService';
 import Comment from '../Comment/comment';
+import { commentServiceFactory } from '../../services/commentService';
+import CreateComment from '../CreateComment/createComment';
 
 
 
@@ -30,12 +32,20 @@ const Post = ({
     const [expanded, setExpanded] = useState(false);
     const [comments, setComments] = useState([]);
     const postService = useService(postsServiceFactory);
+    const commentService = useService(commentServiceFactory);
+
+    useEffect( () => {
+      commentService.getAllCommentsForPost(post._id).then( result => {
+        setComments(result);
+      })
+    }, [])
 
     const handleDelete = (postId) => {
       postService.delete(postId).then( () => {
           setPosts(state => state.filter( post => post._id !== postId))
       })
-   }
+    }
+
 
 
     return (
@@ -65,13 +75,13 @@ const Post = ({
       }
      
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" sx = {{textAlign: 'left'}}>
           {post.postText}
         </Typography>
       </CardContent>
        
       <CardActions disableSpacing>
-        {edit &&   <IconButton aria-label="add to favorites" >
+        {edit &&   <IconButton aria-label="delete" >
         <DeleteForeverIcon 
           onClick = {() =>   handleDelete(post._id)}
         />
@@ -88,9 +98,12 @@ const Post = ({
     </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
+          <Typography>  Comments: </Typography>
+          <CreateComment setComments = {setComments} postId = {post._id}/>
+
           {comments.map((comment) => {
                 return (
-                    <Comment comment = {comment}/>
+                    <Comment key = {comment._id} comment = {comment}/>
                 );
             })
           }

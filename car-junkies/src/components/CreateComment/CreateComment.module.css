@@ -1,0 +1,14 @@
+.create-comment-page{
+    display: flex;
+    border-radius: 15%;
+    justify-content: center;
+    flex-direction: column;
+}
+.create-comment-form {
+    display: flex;
+    width: 85%;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}

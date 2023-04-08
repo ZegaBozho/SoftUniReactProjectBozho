@@ -1162,7 +1162,13 @@
     }
 
 
-     
+    const secret = 'This is not a production server';
+
+    function hash(string) {
+        const hash = crypto__default['default'].createHmac('sha256', secret);
+        hash.update(string);
+        return hash.digest('hex');
+    }
 
     var auth = initPlugin$1;
 
@@ -1311,19 +1317,15 @@
 
     var rules = initPlugin$3;
 
-    var identity = "username";
+    var identity = "email";
     var protectedData = {
         users: {
             "35c62d76-8152-4626-8712-eeb96381bea8": {
-                username: 'Bozho',
-                email: "bozho@abv.bg",
-                imgUrl :"",
+                email: "peter@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
-                username: 'BozhoAdmin',
-                email: "bozhoAdmin@abv.bg",
-                imgUrl :"",
+                email: "john@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             }
         },

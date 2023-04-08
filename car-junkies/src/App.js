@@ -13,13 +13,14 @@ import { Logout } from './components/Logout/logout';
 
 import { authServiceFactory } from './services/authenticationService';
 import { AuthContext } from './contexts/AuthContext';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 
 
 function App() {
   const [isLoading, setIsLoadig] = useState(true);
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useLocalStorage('auth', {});
   const authService = authServiceFactory(auth.accessToken);
 
   useEffect ( () => {
@@ -35,8 +36,7 @@ function App() {
 
         navigate('/');
     } catch (error) {
-       
-        console.log('There is a problem');
+       throw(403, error);
     }
 };
 
@@ -53,8 +53,7 @@ const onRegisterSubmit = async (values) => {
 
         navigate('/');
     } catch (error) {
-        console.log(error);
-        console.log('There is a problem');
+      throw(403, error);
     }
 };
 const onLogout = async () => {

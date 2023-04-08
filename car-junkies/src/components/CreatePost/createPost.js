@@ -41,8 +41,9 @@ const CreatePost = ({setShowCreatePost, setPosts}) => {
       
     const handleSubmit = (e) => {
         e.preventDefault();
-        if ( postValues.postText !== '' ) {
+        if ( postValues.postText.trim() !== '' ) {
             let post = postValues;
+            post.postText = postValues.postText.trim();
             const currentDate = new Date();
             post.date = currentDate.toLocaleDateString('en-UK', { year: 'numeric', month: 'long', day: 'numeric' });
             postService.createPost(post).then( result => {

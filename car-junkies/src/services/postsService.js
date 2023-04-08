@@ -15,7 +15,7 @@ export const postsServiceFactory = (token) => {
     const getMyPosts = async (userId) => {
         const query = encodeURIComponent(`ownerId="${userId}"`);
         const result = await request.get(`${baseUrl}?where=${query}`);
-        const posts = Object.values(result).sort((a,b) => {return b._createdOn - a._createdOn} );
+        const posts = Object.values(result).sort((a,b) => {return a._createdOn - a._createdOn} );
     
         return posts;
     }
