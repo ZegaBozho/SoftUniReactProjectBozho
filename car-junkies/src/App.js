@@ -9,6 +9,7 @@ import Login from './components/Login/login';
 import Register from './components/Register/register';
 import News from './components/News/news';
 import MyPosts from './components/MyPosts/myPosts';
+import EditPost from './components/EditPost/editPost';
 import { Logout } from './components/Logout/logout';
 
 import { authServiceFactory } from './services/authenticationService';
@@ -84,8 +85,9 @@ const contextValues = {
               <Route path='/news' element={<News/>}/>
               <Route path='/login' element = {<Login/>}/>
               <Route path='/logout' element = {<Logout/>}/>
-              <Route path='/myPosts' element={<MyPosts/>}/>
               <Route path='/register' element = {<Register/>}/>
+              <Route path='/myPosts' element={<MyPosts/>}/>
+              <Route path='/myPosts/:postId/edit' element = {<EditPost/>}/>
           </Routes>
        <Footer/>
     </AuthContext.Provider>

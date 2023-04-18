@@ -8,6 +8,7 @@ export const Logout = () => {
 
     useEffect(() => {
         onLogout();
+        localStorage.setItem('auth', JSON.stringify({}))
     }, [onLogout]);
 
     return <Navigate to="/login" /> 

@@ -27,6 +27,12 @@ export const postsServiceFactory = (token) => {
     
         return result;
     };
+    const getOne = async (postId) => {
+        const result = await request.get(`${baseUrl}/${postId}`);
+    
+        return result;
+    };
+    
 
     const editPost = (postId, data) => request.put(`${baseUrl}/${postId}`, data);
 
@@ -38,6 +44,7 @@ export const postsServiceFactory = (token) => {
         createPost,
         editPost,
         getMyPosts,
+        getOne,
         delete: deletepost,
     };
 }

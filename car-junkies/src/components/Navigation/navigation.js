@@ -28,7 +28,7 @@ const Navigation = () => {
                 }}
             >
                 <Tab label = "Home" value = "/home" to = "/" component = {NavLink}/>
-                <Tab label = "News" value = '/news' to = '/news' component ={NavLink}/>
+                {/* <Tab label = "News" value = '/news' to = '/news' component ={NavLink}/> */}
                 {userId && <Tab label = "My Posts" value = "/myPosts" to = "/myPosts" component = {NavLink} /> }
                 {userId && <Tab label = "Logout" value = "/" to ="/logout" component = {NavLink} /> }
                 {!userId && <Tab label = "Login / Register" value = "/" to = "/login" component = {NavLink} /> }
