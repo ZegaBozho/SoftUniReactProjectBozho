@@ -3,6 +3,7 @@
     border-radius: 15%;
     justify-content: center;
     flex-direction: column;
+    height: 100vh;
 }
 .login-form {
     display: flex;
@@ -22,4 +23,6 @@
     width: 50%;
     flex-direction: column;
     text-align: center;
+    color: aliceblue;
+    font-size: 2em;
 }

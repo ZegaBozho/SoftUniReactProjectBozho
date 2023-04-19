@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TextField, Button} from '@mui/material';
 import { AuthContext } from "../../contexts/AuthContext";
 import { LOGIN_ERROR_MESSAGES, REGISTER_REGEX } from '../constatnts/constants';
@@ -10,6 +10,17 @@ const inputStyles = {
         width:'35%',
         marginLeft: 'auto',
         marginRight: 'auto',
+        bgcolor: 'white', 
+        borderRadius:'5%'
+}
+
+const registerStyles = {
+    marginTop: "1em",
+    width:'35%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    bgcolor: 'white',
+    
 }
 
 const Login = () => {
@@ -26,6 +37,8 @@ const Login = () => {
     });
 
     const [authError, setAuthError] = useState('');
+
+    const navigate = useNavigate();
 
     const handleValidateAll = () => {
         for (const key of Object.keys(userCredentials)) {
@@ -103,7 +116,7 @@ const Login = () => {
             
             <div className = {styles['go-to-register']}>
                 <div>Don't have an account yet?</div>
-                <Link to="/register" >Register</Link>
+                <Button  sx= {registerStyles} variant="outlined" onClick = {() => navigate('/register')} >Register</Button>
                 
             </div>
         </div>

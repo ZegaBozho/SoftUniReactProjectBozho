@@ -61,10 +61,10 @@ const Post = ({
 
     return (
         <Card sx={{
-          maxWidth: '30em',
+          maxWidth: '95%',
           marginLeft: 'auto',
           marginRight: 'auto',
-          marginTop: '4em',
+          marginTop: '2em',
         }}>
       <CardHeader
         avatar={ 

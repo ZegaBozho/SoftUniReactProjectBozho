@@ -1,4 +1,9 @@
 .posts-container{
     overflow-y: scroll;
     height:  40em;
+    background-color: white;
+    color: black;
+    width: 40em;
+    margin: 1em auto;
+    border-radius: 2%;
 }

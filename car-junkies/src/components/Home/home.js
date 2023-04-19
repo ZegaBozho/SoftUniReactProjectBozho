@@ -16,10 +16,10 @@ const Home = () => {
 
     return (
         <div className = {styles['home-container']}>
-            <h2>Wellcome to Car-Junkies</h2>
-            <p> The place for car enthusiasts by car enthusiasts</p>
+            <h1>Wellcome to Car-Junkies</h1>
+            <h3> The place for car enthusiasts by car enthusiasts</h3>
 
-            <h4> Latest posts </h4>
+            <h2> Latest posts </h2>
             {
                 <Posts posts = {posts} setPosts = {setPosts}/>
             }

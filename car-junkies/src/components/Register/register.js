@@ -9,6 +9,14 @@ const inputStyles = {
     width:'35%',
     marginLeft: 'auto',
     marginRight: 'auto',
+    bgcolor: 'white', 
+    borderRadius:'5%'
+}
+const registerButtonStyles = {
+    marginTop: "1em",
+    width:'35%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
 }
 
 const Register = () => {
@@ -129,7 +137,7 @@ const Register = () => {
                 />
                   <Button 
                     variant="contained" type='Submit' 
-                    sx= {inputStyles}
+                    sx= {registerButtonStyles}
                 >Register</Button>
             </form>
         </div>

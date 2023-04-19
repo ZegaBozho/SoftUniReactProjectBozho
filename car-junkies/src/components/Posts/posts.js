@@ -11,6 +11,7 @@ const inputStyles = {
     width:'35%',
     marginLeft: 'auto',
     marginRight: 'auto',
+    bgcolor: 'primary',
 }
 
 const Posts = ({
@@ -33,10 +34,10 @@ const Posts = ({
                     showCreatePost && <CreatePost setShowCreatePost = {setShowCreatePost} setPosts = {setPosts}/>
                 }
                 <Button 
-                        variant="contained" type='button' 
+                        variant={showCreatePost?"outlined":"contained"} type='button' 
                         sx= {inputStyles}
                         onClick = {handleToggleAddPost}
-                    >Add post</Button>
+                    >{showCreatePost?"Cancel":"Add post"}</Button>
             </>}
           
             {posts && posts.length? posts.map(post => { return (

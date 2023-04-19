@@ -10,10 +10,20 @@ const inputStyles = {
     width:'35%',
     marginLeft: 'auto',
     marginRight: 'auto',
+    bgcolor: 'white', 
+    borderRadius:'5%'
 }
 const largeTextStyle = {
     marginTop: "1em",
     width:'100%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    bgcolor: 'white', 
+    borderRadius:'5%'
+}
+const postButton = {
+    marginTop: "1em",
+    width:'35%',
     marginLeft: 'auto',
     marginRight: 'auto',
 }
@@ -77,7 +87,7 @@ const CreateComment = ({setComments, postId}) => {
                 />
                 <Button 
                     variant="contained" type='Submit' 
-                    sx= {inputStyles}
+                    sx= {postButton}
                 >Post</Button>
         
             </form>: <>You must be logged in to comment.</>

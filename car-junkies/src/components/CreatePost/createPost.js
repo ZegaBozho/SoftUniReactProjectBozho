@@ -6,14 +6,24 @@ import { TextField, Button } from '@mui/material';
 import styles  from '../Login/Login.module.css';
 
 const inputStyles = {
-    marginTop: "1em",
+    marginTop: "0.5em",
     width:'35%',
     marginLeft: 'auto',
     marginRight: 'auto',
+    bgcolor: 'white', 
+    borderRadius:'5%'
 }
 const largeTextStyle = {
-    marginTop: "1em",
-    width:'80%',
+    marginTop: "0.5em",
+    width:'90%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    bgcolor: 'primary',
+}
+
+const postButton ={
+    marginTop: "0.5em",
+    width:'90%',
     marginLeft: 'auto',
     marginRight: 'auto',
 }
@@ -74,12 +84,12 @@ const CreatePost = ({setShowCreatePost, setPosts}) => {
                     sx = {largeTextStyle}
                     onChange = {handleChange}
                     multiline
-                    rows = {10}
-                    coumns = {255}
+                    rows = {7}
+                    coumns = {400}
                 />
                 <Button 
                     variant="contained" type='Submit' 
-                    sx= {inputStyles}
+                    sx= {postButton}
                 >Post</Button>
         
             </form>

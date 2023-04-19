@@ -1,0 +1,6 @@
+.app-container-style{
+    color: aliceblue;
+    background-image: url('./resources/background-main.jpg');
+    background-position: center;
+    background-size: cover;
+}

@@ -12,13 +12,34 @@ const inputStyles = {
     width:'35%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    textAlign: 'center'
+    textAlign: 'center',
+    bgcolor: 'white', 
+    borderRadius:'5%',
 }
 const largeTextStyle = {
     marginTop: "1em",
     width:'80%',
     marginLeft: 'auto',
     marginRight: 'auto',
+    bgcolor: 'white', 
+    borderRadius:'5%'
+}
+
+const buttonStyles = {
+    marginTop: "1em",
+    width:'35%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    textAlign: 'center',
+}
+
+const cancelButton ={
+    bgcolor: 'white',
+    marginTop: "1em",
+    width:'35%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    textAlign: 'center',
 }
 
 const EditPost = () => {
@@ -63,7 +84,7 @@ const EditPost = () => {
 
 
     return (
-        <div >
+        <div className={stylesFromEdit['edit-page']}>
              <form onSubmit = {handleSubmit} className = {styles['login-form']}>
                 <TextField
                     id="postMedia"
@@ -84,11 +105,11 @@ const EditPost = () => {
                 />
                 <div className={stylesFromEdit['edit-nav-container']}>
                     <Button 
-                        sx = {inputStyles}
+                        sx = {buttonStyles}
                         variant="contained" type='Submit' 
                     >Save Changes</Button>
                     <Button 
-                        sx = {inputStyles}
+                        sx = {cancelButton}
                         onClick={() => {navigate('/')}}
                         variant="outlined"type='Submit' 
                     >Cancel</Button>
